@@ -1,10 +1,14 @@
 # About
 
-A fork from Burtsev Alexey's original .NET object deep copying extension, I inserted a hashing algorithm into the program, and stripped the deep-copying components of it to improve performance.
+A fork from Burtsev Alexey's original .NET object deep-copying extension, I inserted a hashing algorithm into the program, and stripped the deep-copying components of it to improve performance.
 
-With .NET's GetHashCode(), the value is essentially the memory address of the object. With this extension, any object you create, it will generate a consistently hashed (ulong) value based off of all of its properties, as well as its Type. This way, a double '34.5' and a String "34.5" will have different hash codes.
+With .NET's GetHashCode(), the value is essentially based off of the memory address of the object, which is variable for every program run, and won't have a consistent hash value. 
 
-# Original License
+Using this extension, all objects will generate a consistently-hashed _ulong_ value based off of all of its properties.
+
+The hash also takes into account the object's _Type_, so this way, a _double_ '34.5' and a _String_ "34.5" will generate different hash codes.
+
+# License
 
 Source code is released under the MIT license.
 
